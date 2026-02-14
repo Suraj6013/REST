@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
-
 class Person(models.Model):
     MARITAL_STATUS_CHOICES = [
         ('married', 'Married'),
@@ -22,3 +19,4 @@ class Person(models.Model):
 
     def __str__(self):
         return self.name
+    

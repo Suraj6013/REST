@@ -7,6 +7,7 @@ from .serializers import EmployeeSerializer
 from django.http import Http404
 from rest_framework import generics
 from rest_framework import mixins
+from rest_framework import viewsets
 
 # # Create your views here.
 # class EmployeeListCreate(APIView):
@@ -47,12 +48,17 @@ from rest_framework import mixins
 #         employee.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class EmployeeListCreate(generics.ListCreateAPIView, mixins.ListModelMixin, mixins.CreateModelMixin ):
-    queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+#generics
+# class EmployeeListCreate(generics.ListCreateAPIView, mixins.ListModelMixin, mixins.CreateModelMixin ):
+#     queryset = Employee.objects.all()
+#     serializer_class = EmployeeSerializer
 
     
-class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
+# class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
+#     queryset = Employee.objects.all()
+#     serializer_class = EmployeeSerializer
+
+class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-
+    
